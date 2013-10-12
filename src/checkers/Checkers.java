@@ -44,6 +44,8 @@ public class Checkers extends JPanel {
    private JButton iMove;
    
    private JLabel message;  // Label for displaying messages to the user.
+   private JLabel redPlayerLabel;
+   private JLabel blackPlayerLabel;
    
    /**
     * The constructor creates the Board (which in turn creates and manages
@@ -54,7 +56,7 @@ public class Checkers extends JPanel {
    public Checkers(){
       
       setLayout(null);  // I will do the layout myself.
-      setPreferredSize( new Dimension(350,250) );
+      setPreferredSize( new Dimension(350,300) );
       
       setBackground(new Color(0,150,0));  // Dark green background.
       
@@ -68,15 +70,20 @@ public class Checkers extends JPanel {
       add(newGameButton);
       add(resignButton);
       add(message);
+      add(redPlayerLabel);
+      add(blackPlayerLabel);
       
       /* Set the position and size of each component by calling
        its setBounds() method. */
       
-      board.setBounds(20,20,164,164); // Note:  size MUST be 164-by-164 !
-      iMove.setBounds(210,30,120,30);
-      newGameButton.setBounds(210, 90, 120, 30);
-      resignButton.setBounds(210, 150, 120, 30);
-      message.setBounds(0, 200, 350, 30);
+      board.setBounds(20,40,164,164); // Note:  size MUST be 164-by-164 !
+      iMove.setBounds(210,40,120,30);
+      newGameButton.setBounds(210, 100, 120, 30);
+      resignButton.setBounds(210, 160, 120, 30);
+      redPlayerLabel.setBounds(0,200,200,30);
+      blackPlayerLabel.setBounds(0,10,200,30);
+      message.setBounds(0, 230, 350, 30);
+      
       
    } // end constructor
 
@@ -153,6 +160,12 @@ public class Checkers extends JPanel {
          message = new JLabel("",JLabel.CENTER);
          message.setFont(new  Font("Serif", Font.BOLD, 14));
          message.setForeground(Color.green);
+         redPlayerLabel = new JLabel(RedPlayer.getName(),JLabel.CENTER);
+         redPlayerLabel.setFont(new Font("Serif", Font.BOLD, 14));
+         redPlayerLabel.setForeground(Color.green);
+         blackPlayerLabel = new JLabel(BlackPlayer.getName(),JLabel.CENTER);
+         blackPlayerLabel.setFont(new Font("Serif", Font.BOLD, 14));
+         blackPlayerLabel.setForeground(Color.green);
          board = new CheckersData();
          doNewGame();
       }

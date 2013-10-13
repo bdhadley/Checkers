@@ -3,7 +3,6 @@ package checkers;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import java.util.ArrayList;
 import java.util.Random;
 
 
@@ -25,7 +24,6 @@ public class Checkers extends JPanel {
     * ends when the user closes the window.
     */
    public static void main(String[] args) {
-      System.out.println("main");
       JFrame window = new JFrame("Checkers");
       Checkers content = new Checkers();
       window.setContentPane(content);
@@ -56,7 +54,7 @@ public class Checkers extends JPanel {
    public Checkers(){
       
       setLayout(null);  // I will do the layout myself.
-      setPreferredSize( new Dimension(350,300) );
+      setPreferredSize( new Dimension(350,275) );
       
       setBackground(new Color(0,150,0));  // Dark green background.
       
@@ -136,7 +134,6 @@ public class Checkers extends JPanel {
         * start the first game.
        */
       Board() {
-         System.out.println("Board()");
          Random random = new Random();
          if (random.nextBoolean()){
             RedPlayer = new Brian();
@@ -171,7 +168,6 @@ public class Checkers extends JPanel {
       }
       
       private CheckersMove getMove(){
-          System.out.println("getMove()");
           if(currentPlayer == CheckersData.RED) return RedPlayer.getMove(board);
           return BlackPlayer.getMove(board);
       }
@@ -180,7 +176,6 @@ public class Checkers extends JPanel {
        * Respond to user's click on one of the two buttons.
        */
       public void actionPerformed(ActionEvent evt) {
-         System.out.println("actionPerformed(ActionEvent evt)");
          Object src = evt.getSource();
          if (src == newGameButton)
             doNewGame();
@@ -201,7 +196,6 @@ public class Checkers extends JPanel {
        * Start a new game
        */
       void doNewGame() {
-         System.out.println("doNewGame()");
          if (gameInProgress == true) {
                // This should not be possible, but it doesn't hurt to check.
             message.setText("Finish the current game first!");
@@ -251,7 +245,6 @@ public class Checkers extends JPanel {
        * that a game is, in fact, in progress.
        */
       void doClickSquare(int row, int col) {
-         System.out.println("doClickSquare");
          /* If the player clicked on one of the pieces that the player
           can move, mark this row and col as selected and return.  (This
           might change a previous selection.)  Reset the message, in
@@ -302,7 +295,6 @@ public class Checkers extends JPanel {
        * appropriately.
        */
       public boolean doMakeMove(CheckersMove move){
-         System.out.println("doMakeMove(CheckersMove move)");
          boolean inLegalMoves = false;
           for (CheckersMove m : board.getLegalMoves(currentPlayer)){
              //Check to see if moves are same
@@ -403,7 +395,6 @@ public class Checkers extends JPanel {
        * checkers.  If a game is in progress, hilite the legal moves.
        */
       public void paintComponent(Graphics g) {
-         System.out.println("paintComponent");
          /* Draw a two-pixel black border around the edges of the canvas. */
          
          g.setColor(Color.black);
@@ -480,7 +471,6 @@ public class Checkers extends JPanel {
        * clicked and call doClickSquare() to handle it.
        */
       public void mousePressed(MouseEvent evt) {
-         System.out.println("mousePressed");
          if (gameInProgress == false)
             message.setText("Click \"New Game\" to start a new game.");
          else {

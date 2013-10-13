@@ -1,13 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package checkers;
-
-/**
- *
- * @author Brian
- */
    /**
     * A CheckersMove object represents a move in the game of Checkers.
     * It holds the row and column of the piece that is to be moved

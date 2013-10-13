@@ -30,7 +30,6 @@ import java.util.ArrayList;
        * Constructor.  Create the board and set it up for a new game.
        */
       CheckersData() {
-         System.out.println("CheckersData");
          board = new int[8][8];
          setUpGame();
       }
@@ -44,7 +43,6 @@ import java.util.ArrayList;
        * and all such squares in the last three rows contain red squares.
        */
       void setUpGame() {
-         System.out.println("setUpGame");
          for (int row = 0; row < 8; row++) {
             for (int col = 0; col < 8; col++) {
                if ( row % 2 == col % 2 ) {
